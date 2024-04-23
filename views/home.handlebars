@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    {{#if user}}
+    <h1>¡Bienvenido de nuevo, {{user.nombre}}!</h1>
+    <form action="/logout" method="POST">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+    <p>ADMIN ROLE:  <a href="/admin/users">Usuarios existentes</a></p>
+    {{else}}
+    <h1>¡Bienvenido a nuestra aplicación!</h1>
+    {{/if}}
+</body>
+
+</html>
