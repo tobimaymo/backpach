@@ -5,18 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
-    {{#if user}}
-    <h1>¡Bienvenido de nuevo, {{user.nombre}}!</h1>
-    <form action="/logout" method="POST">
-        <button type="submit">Cerrar sesión</button>
-    </form>
-    <p>ADMIN ROLE:  <a href="/admin/users">Usuarios existentes</a></p>
-    {{else}}
-    <h1>¡Bienvenido a nuestra aplicación!</h1>
-    {{/if}}
+    <div class="container">
+        {{#if user}}
+        <h1>¡Bienvenido de nuevo, {{user.nombre}}!</h1>
+        <form action="/logout" method="POST">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+        {{#if user.rol}}
+        <div class="admin-links">
+            <p>ADMIN ROLE:</p>
+            <ul>
+                <li><a href="/admin/users">Usuarios existentes</a></li>
+            </ul>
+        </div>
+        {{/if}}
+        <div class="functions">
+            <p>Funciones</p>
+            <ul>
+                <li><a href="/api/products/"> Tienda </a></li>
+                <li><a href="/api/products/create">Crear productos</a></li>
+                <li><a href="/api/chat">Chat</a></li>
+            </ul>
+        </div>
+        {{else}}
+        <h1>¡Bienvenido a nuestra aplicación!</h1>
+        {{/if}}
+    </div>
 </body>
 
 </html>

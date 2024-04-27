@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro de Mensajes</title>
+    <link rel="stylesheet" href="/css/forum.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Foro de Mensajes</h1>
+
+        <!-- Formulario para enviar un nuevo mensaje -->
+        <form action="/api/chat" method="POST">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+
+        <!-- Listado de mensajes -->
+        <div class="messages">
+            {{#each messages}}
+            <div class="message">
+                <p><strong>{{user}}:</strong> {{message}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+
+</html>

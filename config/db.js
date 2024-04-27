@@ -6,7 +6,6 @@ mongoose.connect(process.env.ATLAS_URL, {
   useUnifiedTopology: true,
 });
 
-
 // Manejo de eventos de conexión
 mongoose.connection.on('connected', () => {
     console.log('Conexión establecida a MongoDB');

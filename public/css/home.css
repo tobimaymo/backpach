@@ -1,0 +1,64 @@
+Estilos generales
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.admin-links {
+    margin-top: 20px;
+}
+
+.admin-links p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.admin-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.admin-links ul li {
+    margin-bottom: 10px;
+}
+
+.admin-links ul li a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.admin-links ul li a:hover {
+    color: #0056b3;
+}

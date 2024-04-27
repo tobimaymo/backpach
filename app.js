@@ -11,11 +11,12 @@ const indexRouter = require('./routes/index');
 const User = require('./models/user');
 const passportConfig = require('./config/passport');
 const usersRouter = require('./routes/users');
-
-
+const productRoutes = require('./routes/product');
+const cartRoutes = require('./routes/cart');
+const mockRoutes = require("./routes/mock")
+const chatRouter = require("./routes/chat")
 
 const app = express();
-
 // Configuración de dotenv para cargar variables de entorno
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.json());
 app.use(session({
   secret: 'mysecret',
   resave: false,
@@ -44,9 +46,13 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/admin', adminRouter);
+app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/mock', mockRoutes);
+app.use("/api/chat", chatRouter);
 
-// Iniciar servidor
-const PORT = process.env.PORT || 3000;
+// Escuchar en el puerto 8080
+const PORT = 8080;
 app.listen(PORT, () => {
-  console.log(`Servidor en funcionamiento en http://localhost:${PORT}`);
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
